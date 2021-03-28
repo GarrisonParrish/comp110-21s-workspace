@@ -12,7 +12,7 @@
         "requirements.txt": true,
         "tools": true
     },
-    "editor.minimap.enabled": false,
+    "editor.minimap.enabled": true,
     "python.linting.enabled": false,
     "python.linting.flake8Enabled": false,
     "python.linting.pylintEnabled": false,
@@ -22,4 +22,6 @@
     "python.testing.pytestArgs": [],
     "python.envFile": "${workspaceFolder}/.env",
     "python.analysis.typeCheckingMode": "basic",
+    "python.pythonPath": "/usr/local/bin/python3",
+    "jupyter.jupyterServerType": "local",
 }
