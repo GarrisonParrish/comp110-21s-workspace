@@ -37,7 +37,7 @@ class Simpy:
                 self.values.append(start)
                 start += step
         else:  # step is positive -- going up
-            while(start > stop):
+            while(start < stop):
                 self.values.append(start)
                 start += step
         
