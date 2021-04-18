@@ -8,6 +8,7 @@ __author__ = "730324058"
 
 
 class Simpy:
+    """Epic Simpy class! Remember: no simping!"""
     values: list[float]
 
     # TODO: Your constructor and methods will go here.
@@ -30,16 +31,15 @@ class Simpy:
     def arange(self, start: float, stop: float, step: float = 1.0) -> None:
         """Here's a flippin docstring!"""
         assert step != 0.0
-
         self.values = []
-
-        hasEnded: bool = False
-        
-        while(hasEnded == False):
-            self.values.append(start)
-            start += step
-            if (start >= stop):
-                hasEnded = True
+        if step < 0:  # step is negative -- going down
+            while(start > stop):
+                self.values.append(start)
+                start += step
+        else:  # step is positive -- going up
+            while(start > stop):
+                self.values.append(start)
+                start += step
         
     def sum(self) -> float:
         """Here's a flippin docstring!"""
@@ -51,7 +51,7 @@ class Simpy:
         if isinstance(rhs, Simpy):
             assert len(self.values) == len(rhs.values)  # make sure they're the same length
             for i in range(len(self.values)):  # have to do a range since rhs is a Simpy
-                addendum.append(self.values[i] + rhs.values[i])  # have to index the values since we're iterating over a range
+                addendum.append(self.values[i] + rhs.values[i])  # have to index the values (range)
         elif isinstance(rhs, float):  # this one is easier
             for j in self.values:
                 addendum.append(j + rhs)  # just add the rhs float to each element in self.values
@@ -105,8 +105,7 @@ class Simpy:
                 superiorium.append(j > rhs)
         return superiorium
 
-    
-    def __getitem__(self, mask: Union [int, list[bool]]) -> Union[float, Simpy]:
+    def __getitem__(self, mask: Union[int, list[bool]]) -> Union[float, Simpy]:
         """Here's a flippin docstring!"""
         # return list of only the values that match the mask, or a regular old float for those inclined
         if isinstance(mask, int):
